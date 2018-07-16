@@ -1,0 +1,55 @@
+<section id="header">
+  <header class="clearfix">
+      <!-- Branding -->
+      <div class="branding">
+          <a class="brand" routerLink="/home">
+              <span>LiveCricketInfo</span>
+          </a>
+          <a role="button" tabindex="0" class="offcanvas-toggle visible-xs-inline"><i class="fa fa-bars"></i></a>
+      </div>
+      <!-- Branding end -->
+      <!-- Left-side navigation -->
+      <ul class="nav-left pull-left list-unstyled list-inline">
+          <li class="sidebar-collapse divided-right">
+              <a role="button" tabindex="0" class="collapse-sidebar">
+                  <i class="fa fa-outdent"></i>
+              </a>
+          </li>
+      </ul>
+      <!-- Left-side navigation end -->
+      <!-- Search -->
+      <div class="search" id="main-search">
+          <input type="text" class="form-control underline-input" placeholder="Search...">
+      </div>
+      <!-- Search end -->
+      <!-- Right-side navigation -->
+      <ul class="nav-right pull-right list-inline">
+          <li> <a role="button" tabindex="0" (click)="onLogout()"> <i class="fa fa-sign-out"></i>Logout </a></li>
+      </ul>
+  </header>
+</section>
+
+<aside id="sidebar">
+    <div id="sidebar-wrap">
+        <div class="slimScrollDiv">
+            <ul id="navigation">
+                <li routerLinkActive="active"><a  routerLink="/login"><i class="fa fa-dashboard"></i> <span>Login</span></a></li>
+                <li routerLinkActive="active"><a  routerLink="/signup"><i class="fa fa-dashboard"></i> <span>Sign Up</span></a></li>
+                
+                <li routerLinkActive="active"><a  routerLink="/home"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
+                <li routerLinkActive="active" ><a  routerLink="/videos" ><i class="fa fa-dashboard"></i> <span>Videos</span></a>  </li>
+                <li routerLinkActive="active"><a  routerLink="/photos"><i class="fa fa-dashboard"></i> <span>Photos</span></a></li>
+                <li routerLinkActive="active"><a  routerLink="/news"><i class="fa fa-dashboard"></i> <span>News</span></a></li>
+                
+                <!-- <li> <a role="button" tabindex="0"><i class="fa fa-envelope-o"></i> <span>Mail</span> <span class="badge bg-lightred">6</span></a>
+                    <ul>
+                        <li><a href="mail-inbox.html"><i class="fa fa-caret-right"></i> Inbox</a></li>
+                        <li><a href="mail-compose.html"><i class="fa fa-caret-right"></i> Compose Mail</a></li>
+                        <li><a href="mail-single.html"><i class="fa fa-caret-right"></i> Single Mail</a></li>
+                    </ul>
+                </li> -->
+            </ul>
+        </div>
+    </div>
+</aside>
+  <!--/ SIDEBAR Content -->
