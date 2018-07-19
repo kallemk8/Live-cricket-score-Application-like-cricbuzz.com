@@ -3,7 +3,7 @@
 <section id="content">
     <div class="page page-dashboard">
         <div class="pageheader" style="margin-bottom: 0px;">
-            <h2>News Add, Edit and Delete</h2>
+            <h2>Sreies Add, Edit and Delete</h2>
 
         </div>
     </div>
@@ -13,10 +13,10 @@
 
         <!-- tile header -->
         <div class="tile-header dvd dvd-btm">
-            <h1 class="custom-font"><strong>News Edit</strong></h1>
+            <h1 class="custom-font"><strong>serices </strong></h1>
             <ul class="controls">
                 <li>
-                    <a role="button" tabindex="0"  routerLink="/news/add" id="add-entry"><i class="fa fa-plus mr-5"></i> Add News</a>
+                    <a role="button" tabindex="0"  routerLink="/serices/add" id="add-entry"><i class="fa fa-plus mr-5"></i> Add Video</a>
                 </li>
                 
             </ul>
@@ -31,24 +31,25 @@
                     <table class="table table-custom"  [mfData]="data" #mf="mfDataTable" [mfRowsOnPage]="5" >
                             <thead>
                                 <tr>
-                                    <th>ID</th>
-                                    <th>Title</th>
-                                    <th>Author</th>
-                                    <th>Series</th>
                                     
+                                    <th>seriesname</th>
+                                    <th>seriesdate</th>
+                                    <th>Batting style</th>
+                                    <th>Country</th>
+                                    <th>Nick name</th>
                                     <th style="width: 160px;" >Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr  *ngFor="let video of data">
-                                    <td> {{video.ID}}</td>
-                                    <td class="sorting_1">{{video.post_title}}</td>
-                                    
-                                    <td>{{video.post_author}}</td>
-                                    <td> {{video.series}}</td>
+                                    <td> {{video.seriesname}}</td>
+                                    <td class="sorting_1">{{video.seriesdate}}</td>
+                                    <td>{{video.ODIs}}</td>
+                                    <td>{{video.Tests}}</td>
+                                    <td> {{video.twentytwenty}}</td>
                                     <td class="actions">
-                                        <a role="button" tabindex="0" class="edit text-primary text-uppercase text-strong text-sm mr-10"  routerLink="/news/edit/{{video.ID}}">Edit</a>
-                                        <a role="button" tabindex="0" class="delete text-danger text-uppercase text-strong text-sm mr-10" (click)="deletenews(video.ID)">Remove</a>
+                                        <a role="button" tabindex="0" class="edit text-primary text-uppercase text-strong text-sm mr-10"  routerLink="/serices/edit/{{video.ID}}">Edit</a>
+                                        <a role="button" tabindex="0" class="delete text-danger text-uppercase text-strong text-sm mr-10" (click)="deleteserice(video.ID)">Remove</a>
                                     </td>
                                 </tr>
                             </tbody>

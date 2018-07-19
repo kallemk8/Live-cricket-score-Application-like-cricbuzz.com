@@ -15,15 +15,18 @@ export class NewsaddComponent implements OnInit {
   imageurl = "";
   editid = null;
   post = {
-    "customvideolink": "",
-    "subTitle":"",
-    "videotitle":"",
-    "video_type":"1",
-    "videoid":"",
-    "series":"0",
+    "post_title": "",
+    "series":"",
     "match_id":"",
-    "videocontent":"",
-    "videoimage":""
+    "post_content":"1",
+    "post_excerpt":"",
+    "meta_title":"0",
+    "meta_keywords":"",
+    "meta_description":"",
+    "post_author":"",
+    "post_type": "",
+    "post_status":"",
+    "postimage":""
   };
   realdata = null;
   videotitle =null;
@@ -63,7 +66,7 @@ export class NewsaddComponent implements OnInit {
     this.editid = this.route.snapshot.params['id'];
     if(this.editid){
       const editeddata = JSON.stringify({"number":this.editid})
-      this.serverService.getsinglevideo(editeddata).subscribe(
+      this.serverService.getsinglenews(this.editid).subscribe(
         (response: Response)=>{
           this.realdata = response.json();
           const realdata = this.realdata.data.userdata
@@ -81,22 +84,26 @@ export class NewsaddComponent implements OnInit {
   
   onSubmit(){
     var data = new FormData();
-    data.append('customvideolink', this.post.customvideolink);
-    data.append('subtitle', this.post.subTitle);
-    data.append('videotitle', this.post.videotitle);
-    data.append('video_type', this.post.video_type);
-    data.append('videoid', this.post.videoid);
+    
+    data.append('post_title', this.post.post_title);
     data.append('series', this.post.series);
     data.append('match_id', this.post.match_id);
-    data.append('videocontent', this.post.videocontent);
-    data.append('videoimage', this.imageurl);
+    data.append('post_content', this.post.post_content);
+    data.append('post_excerpt', "");
+    data.append('post_author', "");
+    data.append('post_status', "");
+    data.append('post_type', "");
+    data.append('meta_title','');
+    data.append('meta_keywords','');
+    data.append('meta_description', '');
+    data.append('postimage', this.imageurl);
 
     if(!this.editid){
      
-      this.serverService.onaddvideos(data).subscribe(
+      this.serverService.onaddnews(data).subscribe(
         (response: Response)=>{
           if(response.status==200){
-            this.router.navigate(['/videos']);
+            this.router.navigate(['/news']);
           }
           console.log(response);
         },(error)=>{
@@ -105,7 +112,7 @@ export class NewsaddComponent implements OnInit {
       );
     }else{
       data.append('ID',this.editid);
-      this.serverService.updatevideodata(data).subscribe(
+      this.serverService.updatenewsdata(data).subscribe(
         (response: Response)=>{
           if(response.status==200){
             this.router.navigate(['/videos']);

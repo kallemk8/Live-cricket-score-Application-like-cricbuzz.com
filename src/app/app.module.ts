@@ -19,6 +19,10 @@ import { CreateComponent } from './videos/create/create.component';
 import { AddComponent } from './photos/add/add.component';
 import { NewsComponent } from './news/news.component';
 import { NewsaddComponent } from './news/newsadd/newsadd.component';
+import { PlayersComponent } from './players/players.component';
+import { AddplayerComponent } from './players/addplayer/addplayer.component';
+import { SericeComponent } from './serice/serice.component';
+import { AddsericeComponent } from './serice/addserice/addserice.component';
 
 const appRoot: Routes = [
   {path: "", component: HomeComponent, canActivate:[AuthGuard]},
@@ -33,7 +37,13 @@ const appRoot: Routes = [
   {path: "news", component: NewsComponent, canActivate:[AuthGuard] },
   {path: "news/edit/:id", component: NewsaddComponent, canActivate:[AuthGuard] },
   {path: "news/add", component: NewsaddComponent, canActivate:[AuthGuard] },
-  
+  {path: 'players', component:PlayersComponent, canActivate:[AuthGuard]},
+  {path: "players/add", component: AddplayerComponent, canActivate:[AuthGuard] },
+  {path: "players/edit/:id", component: AddplayerComponent, canActivate:[AuthGuard] },
+
+  {path: 'serices', component:SericeComponent, canActivate:[AuthGuard]},
+  {path: "serices/add", component: AddsericeComponent, canActivate:[AuthGuard] },
+  {path: "serices/edit/:id", component: AddsericeComponent, canActivate:[AuthGuard] },
   {path: "**", component: AppComponent }
 ];
 @NgModule({
@@ -47,7 +57,11 @@ const appRoot: Routes = [
     CreateComponent,
     AddComponent,
     NewsComponent,
-    NewsaddComponent
+    NewsaddComponent,
+    PlayersComponent,
+    AddplayerComponent,
+    SericeComponent,
+    AddsericeComponent
   ],
   imports: [
     BrowserModule,

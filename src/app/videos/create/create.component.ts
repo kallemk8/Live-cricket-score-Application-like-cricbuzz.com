@@ -61,8 +61,7 @@ export class CreateComponent implements OnInit {
     );
     this.editid = this.route.snapshot.params['id'];
     if(this.editid){
-      const editeddata = JSON.stringify({"number":this.editid})
-      this.serverService.getsinglevideo(editeddata).subscribe(
+      this.serverService.getsinglevideo(this.editid).subscribe(
         (response: Response)=>{
           this.realdata = response.json();
           const realdata = this.realdata.data.userdata

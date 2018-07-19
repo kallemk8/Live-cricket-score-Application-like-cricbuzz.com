@@ -1,31 +1,25 @@
 import { Component, OnInit } from '@angular/core';
 import { ServerService } from '../server.service';
 import { Response } from '@angular/http';
-import {  Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
-  selector: 'app-photos',
-  templateUrl: './photos.component.html',
-  styleUrls: ['./photos.component.css']
+  selector: 'app-serice',
+  templateUrl: './serice.component.html',
+  styleUrls: ['./serice.component.css']
 })
-export class PhotosComponent implements OnInit {
-
+export class SericeComponent implements OnInit {
   constructor(private serverService: ServerService, private router:Router) { }
   data = [];
   total =[];
   ngOnInit() {
-    const number = 0;
-    this.serverService.getphotos(number).subscribe(
+    
+    this.serverService.getserice().subscribe(
       (response: Response)=> {
        var videos = response.json(); 
        this.data = videos.data.userdata;
        console.log(this.data);
-
-      const count =  Math.round(videos.count/10);
-      for(var i=1; i<count; i++ ){
-        this.total.push(i);
-      }
-       console.log(this.total);
+      
       },(error)=>{
         console.log(error);
       }
@@ -34,7 +28,7 @@ export class PhotosComponent implements OnInit {
   nextpage(number: number){
     var number = number-1;
     number = number*10;
-    this.serverService.getphotos(number).subscribe(
+    this.serverService.getplayers(JSON.stringify({"number":number})).subscribe(
       (response: Response)=> {
        var videos = response.json(); 
        this.data = videos.data.userdata;
@@ -47,17 +41,29 @@ export class PhotosComponent implements OnInit {
     
   }
 
-  deletephoto(number: number){
-    this.serverService.deletephoto(JSON.stringify({"number":number})).subscribe(
+  deleteserice(number: number){
+    this.serverService.deleteserice(JSON.stringify({"number":number})).subscribe(
       (response: Response)=> {
        const videos = response.json(); 
+       if(videos.status){
+
+        this.serverService.getserice().subscribe(
+          (response: Response)=> {
+          var videos = response.json(); 
+          this.data = videos.data.userdata;
+          console.log(this.data);
+          
+          },(error)=>{
+            console.log(error);
+          }
+        );
+       }
        console.log(videos);
-       this.router.navigate(['/photos']);
-       
+      
       },(error)=>{
         console.log(error);
       }
     );
   }
-
 }
+

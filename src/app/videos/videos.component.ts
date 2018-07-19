@@ -14,8 +14,9 @@ export class VideosComponent implements OnInit {
   data = [];
   total =[];
   ngOnInit() {
-    
-    this.serverService.getvideos(JSON.stringify({"number":0})).subscribe(
+    var data = new FormData();
+    data.append('number', "10");
+    this.serverService.getvideos(data).subscribe(
       (response: Response)=> {
        var videos = response.json(); 
        this.data = videos.data.userdata;

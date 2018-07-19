@@ -24,44 +24,7 @@
                   <input type="text" class="form-control" name="post_title"  [(ngModel)]="post.post_title" />
               </div>
           </div>
-          <hr class="line-dashed line-full"/>
-
-          <div class="form-group">
-            <label for="input01" class="col-sm-2 control-label">Video Type</label>
-            <div class="col-sm-10">
-                <select class="form-control" [(ngModel)]='post.video_type' name="video_type">
-                    <option value="1">Youtube Video</option>
-                    <option value="2">Custom Video</option>
-                    <option value="3">IFrame Video</option>
-                </select>
-                
-            </div>
-        </div>
-          <hr class="line-dashed line-full" *ngIf="post.video_type==1" />
-          <div class="form-group" *ngIf="post.video_type==1">
-              <label for="input01" class="col-sm-2 control-label">Youtube Video ID</label>
-              <div class="col-sm-10">
-                  <input type="text" class="form-control"  [(ngModel)]="post.videoid" name="videoid">
-              </div>
-          </div>
-
-          <hr class="line-dashed line-full" *ngIf="post.video_type==2"/>
-
-          <div class="form-group" *ngIf="post.video_type==2">
-            <label for="input01" class="col-sm-2 control-label">Custom Video ID</label>
-            <div class="col-sm-10">
-                <input type="text" class="form-control"   [(ngModel)]="post.customvideolink" name="customvideolink">
-            </div>
-        </div>
-        <hr class="line-dashed line-full"/>
-
-          <div class="form-group">
-            <label for="input01" class="col-sm-2 control-label">Sub Title</label>
-            <div class="col-sm-10">
-                <input type="text" class="form-control"   [(ngModel)]="post.subtitle" name="subtitle">
-            </div>
-        </div>
-        
+          
         <hr class="line-dashed line-full"/>
 
         <div class="form-group">
@@ -91,7 +54,7 @@
         </div>
         <hr class="line-dashed line-full"/>
           <div class="form-group">
-              <label class="col-sm-2 control-label">Video Banner Image</label>
+              <label class="col-sm-2 control-label">Banner Image</label>
               <div class="col-sm-10">
                 <img src="http://localhost/codeignater/{{imageurl}}" width="50px" height="50px" *ngIf="imageurl" />
                   <input type="file" class="filestyle"  (change)="onFileSelected($event)" data-buttonText="Find file" data-iconName="fa fa-inbox">

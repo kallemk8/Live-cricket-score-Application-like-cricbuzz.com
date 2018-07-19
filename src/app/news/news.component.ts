@@ -15,7 +15,9 @@ export class NewsComponent implements OnInit {
   ngOnInit() {
     var number = number-1;
     number = number*10;
-    this.serverService.getnews(JSON.stringify({"number":0})).subscribe(
+    var data = new FormData();
+    data.append('number', "10");
+    this.serverService.getnews(data).subscribe(
       (response: Response)=> {
         const videos = response.json(); 
         const videos2 = videos.data.userdata;
@@ -44,5 +46,36 @@ export class NewsComponent implements OnInit {
       }
     );
     
+  }
+
+  deletenews(number: number){
+    this.serverService.deletenews(JSON.stringify({"number":number})).subscribe(
+      (response: Response)=> {
+       const videos = response.json(); 
+       if(videos.status){
+
+        var data = new FormData();
+        data.append('number', "10");
+        this.serverService.getnews(data).subscribe(
+          (response: Response)=> {
+            const videos = response.json(); 
+            const videos2 = videos.data.userdata;
+            this.data =videos2;
+            const count =  Math.round(videos.count/10);
+          for(var i=1; i<count; i++ ){
+            this.total.push(i);
+          }
+            console.log(videos);
+          },(error)=>{
+            console.log(error);
+          }
+        );
+       }
+       console.log(videos);
+      
+      },(error)=>{
+        console.log(error);
+      }
+    );
   }
 }
