@@ -1,15 +1,15 @@
+
 import { Component, OnInit } from '@angular/core';
 import { ServerService } from '../server.service';
 import { Response } from '@angular/http';
 import {  Router } from '@angular/router';
-import * as moment from 'moment';
 
 @Component({
-  selector: 'app-videos',
-  templateUrl: './videos.component.html',
-  styleUrls: ['./videos.component.css']
+  selector: 'app-teams',
+  templateUrl: './teams.component.html',
+  styleUrls: ['./teams.component.css']
 })
-export class VideosComponent implements OnInit {
+export class TeamsComponent implements OnInit {
 
   constructor(private serverService: ServerService, private router:Router) { }
   data = [];
@@ -17,7 +17,7 @@ export class VideosComponent implements OnInit {
   ngOnInit() {
     var data = new FormData();
     data.append('number', "10");
-    this.serverService.getvideos(data).subscribe(
+    this.serverService.getteams().subscribe(
       (response: Response)=> {
        var videos = response.json(); 
        this.data = videos.data.userdata;
@@ -36,8 +36,6 @@ export class VideosComponent implements OnInit {
   nextpage(number: number){
     var number = number-1;
     number = number*10;
-
-    
     this.serverService.getvideos(JSON.stringify({"number":number})).subscribe(
       (response: Response)=> {
        var videos = response.json(); 
@@ -52,11 +50,11 @@ export class VideosComponent implements OnInit {
   }
 
   deletevideo(number: number){
-    this.serverService.deletevideo(JSON.stringify({"number":number})).subscribe(
+    this.serverService.deleteteam(JSON.stringify({"number":number})).subscribe(
       (response: Response)=> {
        const videos = response.json(); 
        console.log(videos);
-       this.router.navigate(['/videos']);
+       this.router.navigate(['/teams']);
       },(error)=>{
         console.log(error);
       }

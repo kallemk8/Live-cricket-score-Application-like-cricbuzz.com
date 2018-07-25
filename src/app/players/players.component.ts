@@ -19,12 +19,6 @@ export class PlayersComponent implements OnInit {
        var videos = response.json(); 
        this.data = videos.data.userdata;
        console.log(this.data);
-
-      const count =  Math.round(videos.count/10);
-      for(var i=1; i<count; i++ ){
-        this.total.push(i);
-      }
-       console.log(this.total);
       },(error)=>{
         console.log(error);
       }

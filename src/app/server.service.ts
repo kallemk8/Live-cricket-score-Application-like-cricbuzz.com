@@ -3,8 +3,8 @@ import {Http, Headers, RequestOptions} from "@angular/http";
 
 @Injectable()
 export class ServerService{
-    base_url = "http://livevideoshub.com/cricket/api/";
-    //base_url = "http://localhost/codeignater/api/";
+    //base_url = "http://livevideoshub.com/cricket/api/";
+    base_url = "http://localhost/codeignater/api/";
     constructor(private http: Http){}
 
     
@@ -17,8 +17,24 @@ export class ServerService{
     getvideos(number: any){
         return this.http.get(this.base_url+'videos/', number);
     }
+    getteams(){
+        return this.http.get(this.base_url+'teams/');
+    }
+    getcountry(){
+        return this.http.get(this.base_url+'country/');
+    }
+    onaddcountry(data:any){
+        return this.http.post(this.base_url+'country/', data);
+    }
     onaddvideos(videos:any){
         return this.http.post(this.base_url+'videos/', videos);
+    }
+    onaddteam(data:any){
+        return this.http.post(this.base_url+'teams/', data);
+    }
+
+    onaddmatches(data:any){
+        return this.http.post(this.base_url+'matches/', data);
     }
 
     
@@ -26,14 +42,48 @@ export class ServerService{
         return this.http.get(this.base_url+'getsinglevideo/?number='+number);
     }
 
+    getsinglecountry(number: any){
+        return this.http.get(this.base_url+'getsinglecountry/?number='+number);
+    }
+
+    
+    getsinglematch(number: any){
+        return this.http.get(this.base_url+'getsinglematch/?number='+number);
+    }
+    
+    getsingleteam(number: any){
+        return this.http.get(this.base_url+'getsingleteam/?number='+number);
+    }
+    
     getsinglenews(number: any){
         return this.http.get(this.base_url+'getsinglenews/?number='+number);
     }
     updatevideodata(video: any){
         return this.http.post(this.base_url+'updatevideos/', video);
     }
+
+    updatecountry(data: any){
+        return this.http.post(this.base_url+'updatecountry/', data);
+    }
+    updateteam(video: any){
+        return this.http.post(this.base_url+'updateteams/', video);
+    }
+
+    updatematche(data: any){
+        return this.http.post(this.base_url+'updatematche/', data);
+    }
+    deletecountry(data: any){
+        return this.http.post(this.base_url+'deletecountry/', data);
+    }
+    
     deletevideo(id:any){
         return this.http.post(this.base_url+'deletevideo/', id);
+    }
+    deletematche(id:any){
+        return this.http.post(this.base_url+'deletematche/', id);
+    }
+    deleteteam(id:any){
+        return this.http.post(this.base_url+'deleteteam/', id);
     }
     updatenewsdata(video: any){
         return this.http.post(this.base_url+'updatenews/', video);
@@ -43,6 +93,10 @@ export class ServerService{
     }
     getphotos(number: any){
         return this.http.get(this.base_url+'photos/?number='+number);
+    }
+
+    getmatches(number: any){
+        return this.http.get(this.base_url+'matches/?number='+number);
     }
     onaddphotos(videos:any){
         return this.http.post(this.base_url+'addphotos/', videos);

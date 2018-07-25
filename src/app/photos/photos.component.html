@@ -1,73 +1,80 @@
 <app-header></app-header>
 
 <section id="content">
-    <div class="page page-dashboard">
-        <div class="pageheader" style="margin-bottom: 0px;">
-            <h2>Photos Add, Edit and Delete</h2>
 
-        </div>
-    </div>
     <div class="page page-tables-datatables">
-        <div class="row"><div class="col-md-12">
-    <section class="tile">
+        <div class="row">
+            <div class="col-md-12">
+                <section class="tile">
 
-        <!-- tile header -->
-        <div class="tile-header dvd dvd-btm">
-            <h1 class="custom-font"><strong>Photos </strong></h1>
-            <ul class="controls">
-                <li>
-                    <a role="button" tabindex="0"  routerLink="/photos/add" id="add-entry"><i class="fa fa-plus mr-5"></i> Add Video</a>
-                </li>
-                
-            </ul>
-        </div>
-        <!-- /tile header -->
-        
-        <!-- tile body -->
-        <div class="tile-body">
-            <div class="table-responsive">
-                    
-                
-                    <table class="table table-custom"  [mfData]="data" #mf="mfDataTable" [mfRowsOnPage]="5" >
-                            <thead>
-                                <tr>
-                                    <th>Rendering engine</th>
-                                    <th>Browser</th>
-                                    <th>Platform(s)</th>
-                                    <th>Engine version</th>
-                                    <th>CSS grade</th>
-                                    <th style="width: 160px;" >Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr  *ngFor="let photo of data">
-                                    <td> {{photo.ID}}</td>
-                                    <td class="sorting_1">{{photo.photoname}}</td>
-                                    <td>{{photo.photogroupid}}</td>
-                                    <td>{{photo.postdate}}</td>
-                                    <td> {{photo.series}}</td>
-                                    <td class="actions">
-                                        <a role="button" tabindex="0" class="edit text-primary text-uppercase text-strong text-sm mr-10"  routerLink="/photos/edit/{{photo.ID}}">Edit</a>
-                                        <a role="button" tabindex="0" class="delete text-danger text-uppercase text-strong text-sm mr-10" (click)="deletephoto(photo.ID)">Remove</a>
-                                    </td>
-                                </tr>
-                            </tbody>
+                    <!-- tile header -->
+                    <div class="tile-header dvd dvd-btm">
+                        <h1 class="custom-font">
+                            <strong>Photos </strong>
+                        </h1>
+                        <ul class="controls">
+                            <li>
+                                <a role="button" tabindex="0" routerLink="/photos/add" id="add-entry">
+                                    <i class="fa fa-plus mr-5"></i> Add Video</a>
+                            </li>
 
-                        </table>
+                        </ul>
+                    </div>
+                    <!-- /tile header -->
 
-                        <nav aria-label="Page navigation example text-center">
-                            <ul class="pagination">
-                              <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                              
-                              <li class="page-item" *ngFor="let c of total"><a class="page-link"  (click)="nextpage(c)" >{{c}}</a></li>
-                              <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                            </ul>
-                          </nav>
-                      
+                    <!-- tile body -->
+                    <div class="tile-body">
+                        <div class="table-responsive">
+
+
+                            <table class="table table-custom" [mfData]="data" #mf="mfDataTable" [mfRowsOnPage]="5">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Title</th>
+                                        
+                                        <th>Date</th>
+                                        <th>Serice</th>
+                                        <th style="width: 160px;">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let photo of data">
+                                        <td> {{photo.ID}}</td>
+                                        <td class="sorting_1">{{photo.photoname}}</td>
+                                        
+                                        <td>{{photo.postdate}}</td>
+                                        <td> {{photo.series}}</td>
+                                        <td class="actions">
+                                            <a role="button" tabindex="0" class="edit text-primary text-uppercase text-strong text-sm mr-10" routerLink="/photos/edit/{{photo.ID}}">Edit</a>
+                                            <a role="button" tabindex="0" class="delete text-danger text-uppercase text-strong text-sm mr-10" (click)="deletephoto(photo.ID)">Remove</a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+
+                            </table>
+
+                            <nav aria-label="Page navigation example text-center">
+                                <ul class="pagination">
+                                    <li class="page-item">
+                                        <a class="page-link" href="#">Previous</a>
+                                    </li>
+
+                                    <li class="page-item" *ngFor="let c of total">
+                                        <a class="page-link" (click)="nextpage(c)">{{c}}</a>
+                                    </li>
+                                    <li class="page-item">
+                                        <a class="page-link" href="#">Next</a>
+                                    </li>
+                                </ul>
+                            </nav>
+
+                        </div>
+                    </div>
+                    <!-- /tile body -->
+
+                </section>
             </div>
         </div>
-        <!-- /tile body -->
-
-    </section>
-</div></div></div>
-  </section>
+    </div>
+</section>

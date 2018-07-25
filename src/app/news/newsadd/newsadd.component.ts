@@ -16,11 +16,11 @@ export class NewsaddComponent implements OnInit {
   editid = null;
   post = {
     "post_title": "",
-    "series":"",
+    "series":"0",
     "match_id":"",
-    "post_content":"1",
+    "post_content":"",
     "post_excerpt":"",
-    "meta_title":"0",
+    "meta_title":"",
     "meta_keywords":"",
     "meta_description":"",
     "post_author":"",

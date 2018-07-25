@@ -23,6 +23,12 @@ import { PlayersComponent } from './players/players.component';
 import { AddplayerComponent } from './players/addplayer/addplayer.component';
 import { SericeComponent } from './serice/serice.component';
 import { AddsericeComponent } from './serice/addserice/addserice.component';
+import { TeamsComponent } from './teams/teams.component';
+import { AddteamsComponent } from './teams/addteams/addteams.component';
+import { AllmatchesComponent } from './allmatches/allmatches.component';
+import { AddmatchComponent } from './allmatches/addmatch/addmatch.component';
+import { CountryComponent } from './country/country.component';
+import { AddcountryComponent } from './country/addcountry/addcountry.component';
 
 const appRoot: Routes = [
   {path: "", component: HomeComponent, canActivate:[AuthGuard]},
@@ -44,6 +50,15 @@ const appRoot: Routes = [
   {path: 'serices', component:SericeComponent, canActivate:[AuthGuard]},
   {path: "serices/add", component: AddsericeComponent, canActivate:[AuthGuard] },
   {path: "serices/edit/:id", component: AddsericeComponent, canActivate:[AuthGuard] },
+  {path: 'teams', component:TeamsComponent, canActivate:[AuthGuard]},
+  {path: "teams/add", component: AddteamsComponent, canActivate:[AuthGuard] },
+  {path: "teams/edit/:id", component: AddteamsComponent, canActivate:[AuthGuard] },
+  {path: 'matches', component:AllmatchesComponent, canActivate:[AuthGuard]},
+  {path: "matches/add", component: AddmatchComponent, canActivate:[AuthGuard] },
+  {path: "matches/edit/:id", component: AddmatchComponent, canActivate:[AuthGuard] },
+  {path: 'country', component:CountryComponent, canActivate:[AuthGuard]},
+  {path: "country/add", component: AddcountryComponent, canActivate:[AuthGuard] },
+  {path: "country/edit/:id", component: AddcountryComponent, canActivate:[AuthGuard] },
   {path: "**", component: AppComponent }
 ];
 @NgModule({
@@ -61,7 +76,13 @@ const appRoot: Routes = [
     PlayersComponent,
     AddplayerComponent,
     SericeComponent,
-    AddsericeComponent
+    AddsericeComponent,
+    TeamsComponent,
+    AddteamsComponent,
+    AllmatchesComponent,
+    AddmatchComponent,
+    CountryComponent,
+    AddcountryComponent
   ],
   imports: [
     BrowserModule,

@@ -1,74 +1,81 @@
 <app-header></app-header>
 
 <section id="content">
-    <div class="page page-dashboard">
-        <div class="pageheader" style="margin-bottom: 0px;">
-            <h2>Sreies Add, Edit and Delete</h2>
 
-        </div>
-    </div>
     <div class="page page-tables-datatables">
-        <div class="row"><div class="col-md-12">
-    <section class="tile">
+        <div class="row">
+            <div class="col-md-12">
+                <section class="tile">
 
-        <!-- tile header -->
-        <div class="tile-header dvd dvd-btm">
-            <h1 class="custom-font"><strong>serices </strong></h1>
-            <ul class="controls">
-                <li>
-                    <a role="button" tabindex="0"  routerLink="/serices/add" id="add-entry"><i class="fa fa-plus mr-5"></i> Add Video</a>
-                </li>
-                
-            </ul>
-        </div>
-        <!-- /tile header -->
-        
-        <!-- tile body -->
-        <div class="tile-body">
-            <div class="table-responsive">
-                    
-                
-                    <table class="table table-custom"  [mfData]="data" #mf="mfDataTable" [mfRowsOnPage]="5" >
-                            <thead>
-                                <tr>
-                                    
-                                    <th>seriesname</th>
-                                    <th>seriesdate</th>
-                                    <th>Batting style</th>
-                                    <th>Country</th>
-                                    <th>Nick name</th>
-                                    <th style="width: 160px;" >Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr  *ngFor="let video of data">
-                                    <td> {{video.seriesname}}</td>
-                                    <td class="sorting_1">{{video.seriesdate}}</td>
-                                    <td>{{video.ODIs}}</td>
-                                    <td>{{video.Tests}}</td>
-                                    <td> {{video.twentytwenty}}</td>
-                                    <td class="actions">
-                                        <a role="button" tabindex="0" class="edit text-primary text-uppercase text-strong text-sm mr-10"  routerLink="/serices/edit/{{video.ID}}">Edit</a>
-                                        <a role="button" tabindex="0" class="delete text-danger text-uppercase text-strong text-sm mr-10" (click)="deleteserice(video.ID)">Remove</a>
-                                    </td>
-                                </tr>
-                            </tbody>
+                    <!-- tile header -->
+                    <div class="tile-header dvd dvd-btm">
+                        <h1 class="custom-font">
+                            <strong>serices </strong>
+                        </h1>
+                        <ul class="controls">
+                            <li>
+                                <a role="button" tabindex="0" routerLink="/serices/add" id="add-entry">
+                                    <i class="fa fa-plus mr-5"></i> Add Video</a>
+                            </li>
 
-                        </table>
+                        </ul>
+                    </div>
+                    <!-- /tile header -->
 
-                        <nav aria-label="Page navigation example text-center">
-                            <ul class="pagination">
-                              <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                              
-                              <li class="page-item" *ngFor="let c of total"><a class="page-link"  (click)="nextpage(c)" >{{c}}</a></li>
-                              <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                            </ul>
-                          </nav>
-                      
+                    <!-- tile body -->
+                    <div class="tile-body">
+                        <div class="table-responsive">
+
+
+                            <table class="table table-custom" [mfData]="data" #mf="mfDataTable" [mfRowsOnPage]="5">
+                                <thead>
+                                    <tr>
+
+                                        <th>Seriesname</th>
+                                        <th>Series Date</th>
+                                        <th>ODIs</th>
+                                        <th>Tests</th>
+                                        <th>T20s</th>
+                                        <th style="width: 160px;">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let video of data">
+                                        <td> {{video.seriesname}}</td>
+                                        <td class="sorting_1">{{video.seriesdate}}</td>
+                                        <td>{{video.ODIs}}</td>
+                                        <td>{{video.Tests}}</td>
+                                        <td> {{video.twentytwenty}}</td>
+                                        <td class="actions">
+                                            <a role="button" tabindex="0" class="edit text-primary text-uppercase text-strong text-sm mr-10" routerLink="/serices/edit/{{video.ID}}">Edit</a>
+                                            <a role="button" tabindex="0" class="delete text-danger text-uppercase text-strong text-sm mr-10" (click)="deleteserice(video.ID)">Remove</a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+
+                            </table>
+
+                            <nav aria-label="Page navigation example text-center">
+                                <ul class="pagination">
+                                    <li class="page-item">
+                                        <a class="page-link" href="#">Previous</a>
+                                    </li>
+
+                                    <li class="page-item" *ngFor="let c of total">
+                                        <a class="page-link" (click)="nextpage(c)">{{c}}</a>
+                                    </li>
+                                    <li class="page-item">
+                                        <a class="page-link" href="#">Next</a>
+                                    </li>
+                                </ul>
+                            </nav>
+
+                        </div>
+                    </div>
+                    <!-- /tile body -->
+
+                </section>
             </div>
         </div>
-        <!-- /tile body -->
-
-    </section>
-</div></div></div>
-  </section>
+    </div>
+</section>
