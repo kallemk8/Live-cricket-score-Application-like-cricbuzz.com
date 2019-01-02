@@ -566,7 +566,7 @@ html.boxed-layout .appWrapper.header-fixed.aside-static #header {
     display: none;
   }
   .hz-menu #navigation > li {
-    display: inline-block;
+    
     float: left;
     overflow: visible !important;
   }
@@ -3882,7 +3882,7 @@ html.boxed-layout .appWrapper.header-fixed.aside-static #header {
 }
 
 .pageheader .page-bar .page-toolbar {
-  display: inline-block;
+  
   float: right;
 }
 
@@ -4407,7 +4407,7 @@ html.boxed-layout .appWrapper.header-fixed.aside-static #header {
 }
 
 .tile .tile-header .controls > li {
-  display: inline-block;
+  
   height: 100%;
   float: left;
 }
@@ -5400,7 +5400,7 @@ label {
   -ms-border-radius: 50px;
   -o-border-radius: 50px;
   border-radius: 50px;
-  -webkit-transform: none;
+  
 }
 
 .onoffswitch-inner:before {
@@ -7265,11 +7265,6 @@ check-toggler.checked:before,
   background-color: #a6a6a6;
 }
 
-.btn-ef.btn-ef-3 {
-  /* Button 3a */
-  /* Button 3b */
-  /* Button 3c */
-}
 
 .btn-ef.btn-ef-3.btn-default {
   background: #e2e2e2;
@@ -8486,16 +8481,6 @@ button:focus {
   border-radius: 0;
 }
 
-.btn-group > .btn:not(.btn-default) {
-  /*&:not(.dropdown-toggle){
-    &:hover,
-    &:focus,
-    &.active,
-    &:active {
-      border-right: 1px solid $transparent-black-2;
-    }
-  }*/
-}
 
 .btn-group > .btn:not(.btn-default) + .dropdown-toggle {
   border-left: 1px solid rgba(0, 0, 0, 0.1);
@@ -8568,7 +8553,7 @@ button:focus {
 }
 
 .myIcon > .fa {
-  speak: none;
+  
   font-size: 26px;
   line-height: 50px;
   display: block;
@@ -11869,23 +11854,7 @@ blockquote p {
   transform: translate(0, 0);
 }
 
-.modal-open.splash {
-  /* Splash Effect 2: Fade in and scale up */
-  /* Splash Effect 3: Slide from the right  */
-  /* Splash Effect 4: Slide from the bottom  */
-  /* Splash Effect 5: Newspaper  */
-  /* Splash Effect 6: Fall  */
-  /* Splash Effect 7: Side Fall  */
-  /* Splash Effect 8: slide and stick to top  */
-  /* Splash Effect 9: 3D flip horizontal  */
-  /* Splash Effect 10: 3D flip vertical  */
-  /* Splash Effect 11: 3D Sign  */
-  /* Splash Effect 12: Super Scaled  */
-  /* Splash Effect 13: Just me  */
-  /* Splash Effect 14: 3D Slit */
-  /* Splash Effect 15: 3D Rotate from bottom */
-  /* Splash Effect 16:3D Rotate in from left */
-}
+
 
 .modal-open.splash .modal-dialog {
   margin-top: 60px;
@@ -12976,7 +12945,7 @@ blockquote p {
 }
 
 .progress-list .details {
-  display: inline-block;
+  
   float: left;
 }
 
@@ -13238,17 +13207,7 @@ blockquote p {
 }
 
 /* @group Retina compatibility */
-@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-resolution: 144dpi) {
-  .chosen-rtl .chosen-search input[type="text"],
-  .chosen-container-single .chosen-single abbr,
-  .chosen-container-single .chosen-single div b,
-  .chosen-container-single .chosen-search input[type="text"],
-  .chosen-container-multi .chosen-choices .search-choice .search-choice-close,
-  .chosen-container .chosen-results-scroll-down span,
-  .chosen-container .chosen-results-scroll-up span {
-    background-image: url("../images/chosen-sprite%402x.png") !important;
-  }
-}
+
 
 /* @end */
 .table > thead > tr td,
@@ -16776,7 +16735,7 @@ hr.line-full {
   }
   [class*="col-md-"] {
     float: left;
-    display: inline-block;
+    
   }
   .col-md-12 {
     width: 100%;

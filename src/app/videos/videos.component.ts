@@ -4,6 +4,7 @@ import { Response } from '@angular/http';
 import {  Router } from '@angular/router';
 import * as moment from 'moment';
 
+
 @Component({
   selector: 'app-videos',
   templateUrl: './videos.component.html',

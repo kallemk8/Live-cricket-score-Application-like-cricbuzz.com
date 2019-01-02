@@ -89,7 +89,7 @@ const appRoot: Routes = [
     FormsModule,
     HttpModule,
     DataTableModule,
-    RouterModule.forRoot(appRoot)
+    RouterModule.forRoot(appRoot, { useHash: true })
   ],
   providers: [ServerService,CookieService, AuthGuard],
   bootstrap: [AppComponent]
