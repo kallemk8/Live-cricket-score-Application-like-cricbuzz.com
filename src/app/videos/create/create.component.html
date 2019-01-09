@@ -38,17 +38,17 @@
 
                                 </div>
                             </div>
-                            <hr class="line-dashed line-full" *ngIf="post.video_type===1" />
-                            <div class="form-group" *ngIf="post.video_type===1">
+                            <hr class="line-dashed line-full" *ngIf="post.video_type==='1'" />
+                            <div class="form-group" *ngIf="post.video_type==='1'">
                                 <label for="input01" class="col-sm-2 control-label">Youtube Video ID</label>
                                 <div class="col-sm-10">
                                     <input type="text" class="form-control" [(ngModel)]="post.videoid" name="videoid">
                                 </div>
                             </div>
 
-                            <hr class="line-dashed line-full" *ngIf="post.video_type===2||post.video_type===3" />
+                            <hr class="line-dashed line-full" *ngIf="post.video_type==='2'||post.video_type==='3'" />
 
-                            <div class="form-group" *ngIf="post.video_type===2||post.video_type===3">
+                            <div class="form-group" *ngIf="post.video_type==='2'||post.video_type==='3'">
                                 <label for="input01" class="col-sm-2 control-label">Custom Video ID</label>
                                 <div class="col-sm-10">
                                     <input type="text" class="form-control" [(ngModel)]="post.customvideolink" name="customvideolink">
